@@ -568,6 +568,7 @@
 \RequirePackage{microtype}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{libertine}  % serifs
+\RequirePackage{mathastext} % use main font for math as well
 \usepackage[scaled=.85,book]{FiraSans} % sans serifs
 \usepackage{inconsolata} % typewriter font, if needed
 %\RequirePackage{textcomp} % nice greek alphabet
