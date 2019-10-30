@@ -567,7 +567,9 @@
 % FONTS
 \RequirePackage{microtype}
 \RequirePackage[T1]{fontenc}
-\RequirePackage{lmodern}  % to make pdf searchable
+\RequirePackage{libertine}  % serifs
+\usepackage[scaled=.85,book]{FiraSans} % sans serifs
+\usepackage{inconsolata} % typewriter font, if needed
 %\RequirePackage{textcomp} % nice greek alphabet
 %\RequirePackage{pifont}   % Dingbats
 
