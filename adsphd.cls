@@ -570,7 +570,7 @@
 \RequirePackage{libertine}  % serifs
 \RequirePackage{mathastext} % use main font for math as well
 \usepackage[scaled=.85,book]{FiraSans} % sans serifs
-\usepackage{inconsolata} % typewriter font, if needed
+\usepackage[scaled=.85]{inconsolata} % typewriter font, if needed
 %\RequirePackage{textcomp} % nice greek alphabet
 %\RequirePackage{pifont}   % Dingbats
 
