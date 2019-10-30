@@ -581,8 +581,10 @@
 
 % TABLE OF CONTENTS
 \usepackage[titles]{tocloft}
+\renewcommand{\cftpartfont}{\sffamily\bfseries\large\selectfont}
+\renewcommand{\cftpartpagefont}{\sffamily\selectfont}
 \renewcommand{\cftchapfont}{\sffamily\bfseries\selectfont}
-\renewcommand{\cftchappagefont}{\sffamily\bfseries\selectfont}
+\renewcommand{\cftchappagefont}{\sffamily\selectfont}
 
 % PAGE LAYOUT
 %\setlength{\textwidth}{12.5truecm}
@@ -720,8 +722,10 @@
 \let\helvetsfdefault\sfdefault
 \renewcommand{\sfdefault}{\origsfdefault}
 
+\RequirePackage{titletoc}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% The document consists of 
+% The document consists of
 %  \frontmatter -> Preface, Summary, etc
 %  \mainmatter  -> Main text
 %  \appendix    -> Appendix
@@ -733,13 +737,19 @@
 % and Pages]).
 % In the course of the booklet, the numbering should be changed
 % (resetted) only twice(!), i.e., using \frontmatter and \mainmatter.
-\pagenumbering{alph} 
+\pagenumbering{alph}
 
 \newcommand{\frontmatter}{\cleardoublepage\pagenumbering{roman}}
 
 \newcommand{\mainmatter}{\cleardoublepage\pagenumbering{arabic}}
 
-\newcommand{\backmatter}{\cleardoublepage}
+\let\orig@appendix=\appendix
+\renewcommand{\appendix}{%
+        \phantomsection
+        \addcontentsline{toc}{part}{Appendixes}
+        \part*{Appendixes}
+        \orig@appendix
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Commands for easy chapter inclusion
