@@ -1392,8 +1392,12 @@ De appendices kunnen desgevallend worden gebundeld in een apart boekdeel.
     \vspace{-\parskip}
     \begin{center}
         \selectfont\LARGE\sffamily\textbf{\color{red}{
+        \ifadsphd@tothejury
+            FOR EVALUATION
+        \else
             DRAFT\\
             {\small To remove, add `final' to class options}
+        \fi
         }}
     \end{center}
     \end{textblock*}
