@@ -567,7 +567,10 @@
 % FONTS
 \RequirePackage{microtype}
 \RequirePackage[T1]{fontenc}
-\RequirePackage{lmodern}  % to make pdf searchable
+\RequirePackage{libertine}  % serifs
+\RequirePackage{mathastext} % use main font for math as well
+\usepackage[scaled=.85,book]{FiraSans} % sans serifs
+\usepackage[scaled=.85]{inconsolata} % typewriter font, if needed
 %\RequirePackage{textcomp} % nice greek alphabet
 %\RequirePackage{pifont}   % Dingbats
 
@@ -578,8 +581,10 @@
 
 % TABLE OF CONTENTS
 \usepackage[titles]{tocloft}
+\renewcommand{\cftpartfont}{\sffamily\bfseries\large\selectfont}
+\renewcommand{\cftpartpagefont}{\sffamily\selectfont}
 \renewcommand{\cftchapfont}{\sffamily\bfseries\selectfont}
-\renewcommand{\cftchappagefont}{\sffamily\bfseries\selectfont}
+\renewcommand{\cftchappagefont}{\sffamily\selectfont}
 
 % PAGE LAYOUT
 %\setlength{\textwidth}{12.5truecm}
@@ -717,8 +722,10 @@
 \let\helvetsfdefault\sfdefault
 \renewcommand{\sfdefault}{\origsfdefault}
 
+\RequirePackage{titletoc}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% The document consists of 
+% The document consists of
 %  \frontmatter -> Preface, Summary, etc
 %  \mainmatter  -> Main text
 %  \appendix    -> Appendix
@@ -730,11 +737,19 @@
 % and Pages]).
 % In the course of the booklet, the numbering should be changed
 % (resetted) only twice(!), i.e., using \frontmatter and \mainmatter.
-\pagenumbering{alph} 
+\pagenumbering{alph}
 
 \newcommand{\frontmatter}{\cleardoublepage\pagenumbering{roman}}
 
 \newcommand{\mainmatter}{\cleardoublepage\pagenumbering{arabic}}
+
+\let\orig@appendix=\appendix
+\renewcommand{\appendix}{%
+        \phantomsection
+        \addcontentsline{toc}{part}{Appendixes}
+        \part*{Appendixes}
+        \orig@appendix
+}
 
 \newcommand{\backmatter}{\cleardoublepage}
 
@@ -1379,8 +1394,12 @@ De appendices kunnen desgevallend worden gebundeld in een apart boekdeel.
     \vspace{-\parskip}
     \begin{center}
         \selectfont\LARGE\sffamily\textbf{\color{red}{
+        \ifadsphd@tothejury
+            FOR EVALUATION
+        \else
             DRAFT\\
             {\small To remove, add `final' to class options}
+        \fi
         }}
     \end{center}
     \end{textblock*}
@@ -1672,17 +1691,10 @@ De appendices kunnen desgevallend worden gebundeld in een apart boekdeel.
 \thispagestyle{empty}
 \mbox{}
 \vfill
-{\scriptsize\sffamily{\setlength{\parindent}{0ex}\copyright{}~\@copyyear~KU Leuven -- \@faculty \\
-Uitgegeven in eigen beheer, \@authorf~\@authorl, \@address, \@addresspc{} (Belgium)}
+{\footnotesize\sffamily{\setlength{\parindent}{0ex}\copyright{}~\@copyyear~KU Leuven -- \@faculty \\
+Printed in-house, \@authorf~\@authorl, \@address, \@addresspc{} (Belgium)}
 
 \bigskip
-\selectlanguage{dutch}
-Alle rechten voorbehouden. Niets uit deze uitgave mag worden vermenigvuldigd en/of openbaar gemaakt
-worden door middel van druk, fotokopie, microfilm, elektronisch
-of op welke andere wijze ook zonder voorafgaande schriftelijke
-toestemming van de uitgever.
-
-\medskip
 \ifadsphd@british
 \selectlanguage{british}
 \else
