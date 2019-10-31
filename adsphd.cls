@@ -751,6 +751,8 @@
         \orig@appendix
 }
 
+\newcommand{\backmatter}{\cleardoublepage}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Commands for easy chapter inclusion
 
