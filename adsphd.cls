@@ -1691,17 +1691,10 @@ De appendices kunnen desgevallend worden gebundeld in een apart boekdeel.
 \thispagestyle{empty}
 \mbox{}
 \vfill
-{\scriptsize\sffamily{\setlength{\parindent}{0ex}\copyright{}~\@copyyear~KU Leuven -- \@faculty \\
-Uitgegeven in eigen beheer, \@authorf~\@authorl, \@address, \@addresspc{} (Belgium)}
+{\footnotesize\sffamily{\setlength{\parindent}{0ex}\copyright{}~\@copyyear~KU Leuven -- \@faculty \\
+Printed in-house, \@authorf~\@authorl, \@address, \@addresspc{} (Belgium)}
 
 \bigskip
-\selectlanguage{dutch}
-Alle rechten voorbehouden. Niets uit deze uitgave mag worden vermenigvuldigd en/of openbaar gemaakt
-worden door middel van druk, fotokopie, microfilm, elektronisch
-of op welke andere wijze ook zonder voorafgaande schriftelijke
-toestemming van de uitgever.
-
-\medskip
 \ifadsphd@british
 \selectlanguage{british}
 \else
