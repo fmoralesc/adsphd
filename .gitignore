@@ -35,3 +35,5 @@ s
 *.blg
 *.tgz
 VERSION
+*.fls
+*.ptc
